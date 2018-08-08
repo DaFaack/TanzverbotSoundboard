@@ -1,0 +1,31 @@
+<resources>
+
+    <string name="app_name">Tanzverbot - Soundboard</string>
+    <string name="package_name">com.pentasounds.tanzverbotsoundboard</string>
+
+    <string name="banner_ad_unit_id">ca-app-pub-9085519767723102/4175298361</string>
+    <string name="interstitial_ad_unit_id">ca-app-pub-9085519767723102/4073380102</string>
+
+
+    <string name="action_settings">Settings</string>
+
+    <string name="foldername">tanzverbotfolder</string>
+
+    <!--Tab Namen-->
+    <string name="tab1">Kommentare</string>
+    <string name="tab2">Ausraster</string>
+    <string name="tab3">Lustiges</string>
+
+
+    <string name="link_zur_app">https://play.google.com/store/apps/details?id=com.pentasounds.tanzverbotsoundboard</string>
+    <string name="text_fuers_teilen_vor_name">✶Hol dir das </string>
+    <string name="text_fuers_teilen_nach_name">mit den besten Sounds✶</string>
+
+    <string name="rechtliches"> <b>INFO:</b>\nDas Soundboard wurde nicht von Tanzverbot erstellt, sondern von Fans von ihm.\nWir haben ohne Erfolg versucht Tanzverbot zu erreichen, deshalb sind wir, falls er etwas gegen dieses Soundboard einzuwenden hat, jederzeit bereit es offline zu nehmen und stehen ihm bei Fragen, über Email, zur Verfügung.\n\n<b>Impressum:</b>\nJakob Conda\nAaron Waller\n\npentasounds@gmail.com</string>
+
+
+    <string name="instagram_text">Du willst immer auf dem Laufenden sein, wann wir neue Apps rausbringen und mitbekommen wie sie programmiert werden?\n\nDann folge doch unserer offiziellen Instagram Seite!</string>
+
+    <string name="stats_link">https://redirection.lima-city.de/stats/tanzverbotsb/</string>
+
+</resources>
