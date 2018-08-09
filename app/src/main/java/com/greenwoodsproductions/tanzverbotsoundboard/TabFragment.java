@@ -1,4 +1,4 @@
-package com.pentasounds.tanzverbotsoundboard;
+package com.greenwoodsproductions.tanzverbotsoundboard;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,9 +14,9 @@ import android.view.ViewGroup;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
-import com.pentasounds.tanzverbotsoundboard.tabs.Tab1;
-import com.pentasounds.tanzverbotsoundboard.tabs.Tab2;
-import com.pentasounds.tanzverbotsoundboard.tabs.Tab3;
+import com.greenwoodsproductions.tanzverbotsoundboard.tabs.Tab1;
+import com.greenwoodsproductions.tanzverbotsoundboard.tabs.Tab2;
+import com.greenwoodsproductions.tanzverbotsoundboard.tabs.Tab3;
 
 /**
  * Created by Ratan on 7/27/2015.

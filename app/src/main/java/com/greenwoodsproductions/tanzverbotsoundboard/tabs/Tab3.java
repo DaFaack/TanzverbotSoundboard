@@ -1,4 +1,4 @@
-package com.pentasounds.tanzverbotsoundboard.tabs;
+package com.greenwoodsproductions.tanzverbotsoundboard.tabs;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -31,8 +31,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.pentasounds.tanzverbotsoundboard.MainActivity;
-import com.pentasounds.tanzverbotsoundboard.R;
+import com.greenwoodsproductions.tanzverbotsoundboard.MainActivity;
+import com.greenwoodsproductions.tanzverbotsoundboard.R;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -43,57 +43,45 @@ import java.io.OutputStream;
 /**
  * Created by Ratan on 7/29/2015.
  */
-public class Tab1 extends Fragment {
-
-
+public class Tab3 extends Fragment {
     GridView myGridView;
     int position;
     View layout;
-//    File soundfile;
-File directory;
-
-    int max;
-    public String[] items1 ={"alter 1","Alter 2","Alter 3","Ansage","Ich nehm euch auseinander","Ich raste aus","1L booster","Der Boss ist back","CS Go"
-            ,"Doppelpeace 1","Doppelpeace 2","Ich war voll down"
-            ,"dreckige kacke","eh","ehm"
-            ,"ganz ehrlich","geregelt","hallo","hallo leute","Halsschmerzen","hater"
-            ,"hea","Ich bring alle um","Ich schwöre dir","ja 1","ja 2","krass 1","krass 2","lache"
-            ,"leute","mach frei","natuerlich","nein 1","nein 2","nein 3","oh 1","oh 2","qualität","stream","wunderbar","Digga"};
+    //    File soundfile;
+    File directory;
+    String filename;
+    public String[] items1 ={"Wieso seid ihr alle AFK","Beatbox","Community","Er malt nicht 1","Er malt nicht 2","Er malt","Das fickt mich so ab","Frauen 1","Frauen 2"
+            ,"Gehirn-\naussetzer 1","Gehirn-\naussetzer 2","Gehirn-\naussetzer 3"
+            ,"Geräusch 1","Geräusch 2","Geräusch 3"
+            ,"Geräusch 4","Geräusch 5","Geräusch 6","Lache 1","Lache 2","Achtung! Verwechs-\nlungsgefahr"
+            ,"Monitor anspucken","Rap 1","Rap 2","Rap 3","Rap 4","Stiernacken","Wichsplatz","Zahnlücke"};
 
     public static int[] soundfiles ={
-            R.raw.alter,R.raw.alter1,R.raw.alter2,R.raw.ansage,R.raw.auseinander,
-            R.raw.ausrasten,R.raw.booster,R.raw.boss,R.raw.csgo,R.raw.doppelpeace,
-            R.raw.doppelpeace1,R.raw.down,R.raw.dreckigekacke,R.raw.eh,R.raw.ehm,
-            R.raw.ganzehrlich,R.raw.geregelt,R.raw.hallo,R.raw.halloleute,R.raw.halsschmerzen,
-            R.raw.hater,R.raw.hea,R.raw.ichbringalleum,R.raw.ichschwoeredir,R.raw.ja,
-            R.raw.ja1,R.raw.krass,R.raw.krass1,R.raw.lache2,R.raw.leute,
-            R.raw.machfrei,R.raw.natuerlich,R.raw.nein,R.raw.nein1,R.raw.nein3,
-            R.raw.oh,R.raw.oh1,R.raw.qualitaet,R.raw.stream,R.raw.wunderbar,
-            R.raw.digga
+            R.raw.afk,R.raw.beatbox,R.raw.community,R.raw.ermaltnicht,R.raw.ermaltnicht1,
+            R.raw.ermalt,R.raw.ficktmichab,R.raw.frauen,R.raw.frauen1,R.raw.gehirnaussetzer,
+            R.raw.gehirnaussetzer1,R.raw.gehirnaussetzer2,R.raw.gereausch1,R.raw.gereausch2,R.raw.gereausch3,
+            R.raw.gereausch4,R.raw.gereausch5,R.raw.gereausch6,R.raw.lache,R.raw.lache1,
+            R.raw.maschinenpistole,R.raw.monitor,R.raw.rap1,R.raw.rap2,R.raw.rap3,
+            R.raw.rap4,R.raw.stiernacken,R.raw.wixxplatz,R.raw.zahnluecke
 
     };
-
-
-
-
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView=inflater.inflate(R.layout.tab1_layout,container,false);
+        View rootView=inflater.inflate(R.layout.tab3_layout,container,false);
 
-        layout=rootView.findViewById(R.id.kommentarelayout);
+        layout=rootView.findViewById(R.id.lustiges);
         File storage = Environment.getExternalStorageDirectory();
         directory = new File(storage.getAbsolutePath() +"/"+R.string.foldername+"/");
 //        soundfile=new File(directory, filename);
-
 
         AdView mAdView = (AdView) rootView.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        myGridView = (GridView)rootView.findViewById(R.id.kommentareGridView);
-        myGridView.setAdapter(new CustomGridAdapter(getActivity(), items1));
+        myGridView = (GridView)rootView.findViewById(R.id.lustigesGridView);
+        myGridView.setAdapter(new Tab3.CustomGridAdapter(getActivity(), items1));
         myGridView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
@@ -206,10 +194,10 @@ File directory;
 
                 @Override
                 public void onClick(View v) {
-                        if (context instanceof MainActivity) {
-                            ((MainActivity) context).TabOneItemClicked(position);
-                        }
 
+                        if (context instanceof MainActivity) {
+                            ((MainActivity) context).TabThreeItemClicked(position);
+                        }
 
                 }
             });
@@ -266,7 +254,6 @@ File directory;
             builder = new AlertDialog.Builder(getContext(), AlertDialog.THEME_HOLO_LIGHT);
 
         }
-
         builder.setItems(new CharSequence[]{"Klingelton", "Nachrichtenton", "Alarmton"}, new DialogInterface.OnClickListener(){
 
             @Override
@@ -325,7 +312,6 @@ File directory;
             if(MainActivity.isTesting){
                 Toast.makeText(getContext(),"Sound Saved", Toast.LENGTH_SHORT).show();
             }
-
             // Log the name of the sound that is being saved
             Log.e("Saving sound ","#############");
 

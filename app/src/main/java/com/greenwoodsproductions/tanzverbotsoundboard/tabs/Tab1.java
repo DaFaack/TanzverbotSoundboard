@@ -1,4 +1,4 @@
-package com.pentasounds.tanzverbotsoundboard.tabs;
+package com.greenwoodsproductions.tanzverbotsoundboard.tabs;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -31,8 +31,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.pentasounds.tanzverbotsoundboard.MainActivity;
-import com.pentasounds.tanzverbotsoundboard.R;
+import com.greenwoodsproductions.tanzverbotsoundboard.MainActivity;
+import com.greenwoodsproductions.tanzverbotsoundboard.R;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -41,32 +41,35 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * Created by Oclemmy on 5/10/2016 for ProgrammingWizards Channel and http://www.Camposha.com.
+ * Created by Ratan on 7/29/2015.
  */
-public class Tab2 extends Fragment {
+public class Tab1 extends Fragment {
+
 
     GridView myGridView;
     int position;
     View layout;
-    //    File soundfile;
-    File directory;
-    String filename;
+//    File soundfile;
+File directory;
 
-    public String[] items1 ={"Minecraft pocket Spieler","Ich fick alle auseinander","Arschloch","Bastard 1","Bastard 2",
-            "Bastard 3","Behindert","Every day every night","Deine Mutter 1","Deine Mutter 2","Doppelfinger","Dreck",
-            "Erbärmliche pisser","fickt auf euch alle","Fokussier","halt dein maul 1","halt dein maul 2","hurensohn"
-            ,"In the ass 1","In the ass 2","Kevin","Ich wiege 117 Kilo","KuchenTV fick dich","Montanablack fick dich",
-            "Alle anderen fickt euch","Nummer heraus-\ngefunden","nuttensohn 1",
-            "nuttensohn 2","penner 1","penner 2","penner 3","penner 4","sack","verpisst euch","wichser"};
+    int max;
+    public String[] items1 ={"alter 1","Alter 2","Alter 3","Ansage","Ich nehm euch auseinander","Ich raste aus","1L booster","Der Boss ist back","CS Go"
+            ,"Doppelpeace 1","Doppelpeace 2","Ich war voll down"
+            ,"dreckige kacke","eh","ehm"
+            ,"ganz ehrlich","geregelt","hallo","hallo leute","Halsschmerzen","hater"
+            ,"hea","Ich bring alle um","Ich schwöre dir","ja 1","ja 2","krass 1","krass 2","lache"
+            ,"leute","mach frei","natuerlich","nein 1","nein 2","nein 3","oh 1","oh 2","qualität","stream","wunderbar","Digga"};
 
     public static int[] soundfiles ={
-            R.raw.minecraftpocket,R.raw.alleauseinander,R.raw.arschloch,R.raw.bastard,R.raw.bastard1,
-            R.raw.bastard3,R.raw.behindert,R.raw.daynnight,R.raw.deinemutter,R.raw.deinemutter1,
-            R.raw.doppelfinger,R.raw.dreck,R.raw.erbearmlichepisser,R.raw.ficktaufeuchalle,R.raw.focusier,
-            R.raw.haltdeinmaul,R.raw.haltdeinmaul1,R.raw.hurensohn,R.raw.intheass,R.raw.intheass1,
-            R.raw.kevin,R.raw.koerpergewicht,R.raw.kuchentv,R.raw.montanablack,R.raw.alleanderen,
-            R.raw.nummer,R.raw.nuttensohn,R.raw.nuttensohn1,R.raw.penner,R.raw.penner1,
-            R.raw.penner3,R.raw.penner4,R.raw.sack,R.raw.verpissteuch,R.raw.wiixxer
+            R.raw.alter,R.raw.alter1,R.raw.alter2,R.raw.ansage,R.raw.auseinander,
+            R.raw.ausrasten,R.raw.booster,R.raw.boss,R.raw.csgo,R.raw.doppelpeace,
+            R.raw.doppelpeace1,R.raw.down,R.raw.dreckigekacke,R.raw.eh,R.raw.ehm,
+            R.raw.ganzehrlich,R.raw.geregelt,R.raw.hallo,R.raw.halloleute,R.raw.halsschmerzen,
+            R.raw.hater,R.raw.hea,R.raw.ichbringalleum,R.raw.ichschwoeredir,R.raw.ja,
+            R.raw.ja1,R.raw.krass,R.raw.krass1,R.raw.lache2,R.raw.leute,
+            R.raw.machfrei,R.raw.natuerlich,R.raw.nein,R.raw.nein1,R.raw.nein3,
+            R.raw.oh,R.raw.oh1,R.raw.qualitaet,R.raw.stream,R.raw.wunderbar,
+            R.raw.digga
 
     };
 
@@ -77,9 +80,9 @@ public class Tab2 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView=inflater.inflate(R.layout.tab2_layout,container,false);
+        View rootView=inflater.inflate(R.layout.tab1_layout,container,false);
 
-        layout=rootView.findViewById(R.id.sprueche);
+        layout=rootView.findViewById(R.id.kommentarelayout);
         File storage = Environment.getExternalStorageDirectory();
         directory = new File(storage.getAbsolutePath() +"/"+R.string.foldername+"/");
 //        soundfile=new File(directory, filename);
@@ -89,8 +92,8 @@ public class Tab2 extends Fragment {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        myGridView = (GridView)rootView.findViewById(R.id.spruecheGridView);
-        myGridView.setAdapter(new Tab2.CustomGridAdapter(getActivity(), items1));
+        myGridView = (GridView)rootView.findViewById(R.id.kommentareGridView);
+        myGridView.setAdapter(new CustomGridAdapter(getActivity(), items1));
         myGridView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
@@ -203,10 +206,10 @@ public class Tab2 extends Fragment {
 
                 @Override
                 public void onClick(View v) {
-
                         if (context instanceof MainActivity) {
-                            ((MainActivity) context).TabTwoItemClicked(position);
+                            ((MainActivity) context).TabOneItemClicked(position);
                         }
+
 
                 }
             });
@@ -263,6 +266,7 @@ public class Tab2 extends Fragment {
             builder = new AlertDialog.Builder(getContext(), AlertDialog.THEME_HOLO_LIGHT);
 
         }
+
         builder.setItems(new CharSequence[]{"Klingelton", "Nachrichtenton", "Alarmton"}, new DialogInterface.OnClickListener(){
 
             @Override
@@ -321,6 +325,7 @@ public class Tab2 extends Fragment {
             if(MainActivity.isTesting){
                 Toast.makeText(getContext(),"Sound Saved", Toast.LENGTH_SHORT).show();
             }
+
             // Log the name of the sound that is being saved
             Log.e("Saving sound ","#############");
 
@@ -419,3 +424,4 @@ public class Tab2 extends Fragment {
     }
 
 }
+

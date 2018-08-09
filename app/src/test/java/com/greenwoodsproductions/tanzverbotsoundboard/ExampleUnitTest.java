@@ -1,4 +1,4 @@
-package com.pentasounds.tanzverbotsoundboard;
+package com.greenwoodsproductions.tanzverbotsoundboard;
 
 import org.junit.Test;
 

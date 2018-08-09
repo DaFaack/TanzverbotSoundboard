@@ -1,4 +1,4 @@
-package com.pentasounds.tanzverbotsoundboard;
+package com.greenwoodsproductions.tanzverbotsoundboard;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,9 +18,9 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.pentasounds.tanzverbotsoundboard.tabs.Tab3;
-import com.pentasounds.tanzverbotsoundboard.tabs.Tab1;
-import com.pentasounds.tanzverbotsoundboard.tabs.Tab2;
+import com.greenwoodsproductions.tanzverbotsoundboard.tabs.Tab3;
+import com.greenwoodsproductions.tanzverbotsoundboard.tabs.Tab1;
+import com.greenwoodsproductions.tanzverbotsoundboard.tabs.Tab2;
 
 import java.io.File;
 import java.io.IOException;
@@ -124,6 +124,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+                if(menuItem.getItemId() == R.id.teilen){
+                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                    shareIntent.setType("text/plain");
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=com.greenwoodsproductions.tanzverbotsoundboard");
+                    startActivity(Intent.createChooser(shareIntent,  "Teilen über..."));
+                }
+
+
                 if (menuItem.getItemId() == R.id.nav_item_inbox) {
                     FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
                     xfragmentTransaction.replace(R.id.containerView,new TabFragment()).commit();
@@ -131,89 +139,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                if(menuItem.getItemId() == R.id.teilen){
-                    saveToWeb("share_app");
-
-                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                    shareIntent.setType("text/plain");
-                    shareIntent.putExtra(Intent.EXTRA_SUBJECT, getText(R.string.app_name));
-                    shareIntent.putExtra(Intent.EXTRA_TEXT, getText(R.string.text_fuers_teilen_vor_name) + " " +  getText(R.string.app_name) + " " + getText(R.string.text_fuers_teilen_nach_name) +"\n\n" + getText(R.string.link_zur_app));
-                    startActivity(Intent.createChooser(shareIntent,  "Teilen über..."));
-                }
-
-
-
-
-
-
-                if (menuItem.getItemId() == R.id.soundboardapps) {
-                    saveToWeb("playstore_soundboardapps");
-
-                    String url = "https://play.google.com/store/apps/developer?id=PentaSounds";
-
-                    Intent intent = new Intent();
-                    intent.setAction(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse(url));
-                    onPause();
-                    startActivity(intent);
-                }
-
-                if (menuItem.getItemId() == R.id.buttonapps) {
-                    saveToWeb("playstore_buttonapps");
-
-                    String url = "https://play.google.com/store/apps/developer?id=PentaButtons";
-
-                    Intent intent = new Intent();
-                    intent.setAction(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse(url));
-                    onPause();
-                    startActivity(intent);
-                }
-
-                if (menuItem.getItemId() == R.id.instagram) {
-
-                    saveToWeb("instagram");
-
-                    AlertDialog.Builder a_builder = new AlertDialog.Builder(MainActivity.this);
-                    a_builder.setMessage(R.string.instagram_text)
-                            .setCancelable(true)
-                            .setPositiveButton("Ja will ich", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    String url = "https://www.redirection.lima-city.de/links/instagram.html";
-
-                                    Intent intent = new Intent();
-                                    intent.setAction(Intent.ACTION_VIEW);
-                                    intent.setData(Uri.parse(url));
-                                    onPause();
-                                    startActivity(intent);
-                                }
-                            })
-                            .setNegativeButton("Abbrechen", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int i) {
-                                    dialog.cancel();
-                                }
-                            });
-                    AlertDialog alert = a_builder.create();
-                    alert.setTitle("Instagram");
-                    alert.show();
-                }
-
-
-
-
-                if (menuItem.getItemId() == R.id.email) {
-                    saveToWeb("email");
-                    Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                            "mailto","pentasounds@gmail.com", null));
-                    emailIntent.putExtra(Intent.EXTRA_TEXT,"[Packagename:" + getText(R.string.package_name) +  "  ---Diese Info nicht löschen---]\n\n\n\n\n (Deine Nachricht)");
-                    startActivity(Intent.createChooser(emailIntent, "E-Mail senden..."));
-                }
-
-
                 if (menuItem.getItemId() == R.id.rechtliches) {
-                    saveToWeb("rechtliches");
                     AlertDialog.Builder a_builder = new AlertDialog.Builder(MainActivity.this);
                     a_builder.setMessage(R.string.rechtliches)
                             .setCancelable(true)
@@ -224,11 +150,9 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             });
                     AlertDialog alert = a_builder.create();
-                    alert.setTitle("Rechtliches");
+                    alert.setTitle("Impressum");
                     alert.show();
                 }
-
-
 
 
                 return false;
