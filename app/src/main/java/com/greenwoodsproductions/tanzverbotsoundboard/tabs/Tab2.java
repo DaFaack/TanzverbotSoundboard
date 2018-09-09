@@ -85,9 +85,7 @@ public class Tab2 extends Fragment {
 //        soundfile=new File(directory, filename);
 
 
-        AdView mAdView = (AdView) rootView.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+
 
         myGridView = (GridView)rootView.findViewById(R.id.spruecheGridView);
         myGridView.setAdapter(new Tab2.CustomGridAdapter(getActivity(), items1));

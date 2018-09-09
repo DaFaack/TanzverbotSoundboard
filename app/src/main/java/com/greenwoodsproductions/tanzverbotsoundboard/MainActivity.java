@@ -18,6 +18,8 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.greenwoodsproductions.tanzverbotsoundboard.tabs.Tab3;
 import com.greenwoodsproductions.tanzverbotsoundboard.tabs.Tab1;
 import com.greenwoodsproductions.tanzverbotsoundboard.tabs.Tab2;
@@ -47,7 +49,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         isTesting=false;
 
         //zufallszehl holen

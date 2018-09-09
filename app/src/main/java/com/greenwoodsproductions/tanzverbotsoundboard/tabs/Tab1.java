@@ -88,9 +88,7 @@ File directory;
 //        soundfile=new File(directory, filename);
 
 
-        AdView mAdView = (AdView) rootView.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+
 
         myGridView = (GridView)rootView.findViewById(R.id.kommentareGridView);
         myGridView.setAdapter(new CustomGridAdapter(getActivity(), items1));

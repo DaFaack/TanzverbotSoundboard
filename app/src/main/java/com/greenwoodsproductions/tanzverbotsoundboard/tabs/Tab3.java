@@ -76,9 +76,7 @@ public class Tab3 extends Fragment {
         directory = new File(storage.getAbsolutePath() +"/"+R.string.foldername+"/");
 //        soundfile=new File(directory, filename);
 
-        AdView mAdView = (AdView) rootView.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+
 
         myGridView = (GridView)rootView.findViewById(R.id.lustigesGridView);
         myGridView.setAdapter(new Tab3.CustomGridAdapter(getActivity(), items1));
